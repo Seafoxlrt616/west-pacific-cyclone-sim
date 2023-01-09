@@ -1596,16 +1596,43 @@ STORM_ALGORITHM[SIM_MODE_FUTURE] = {};
 STORM_ALGORITHM[SIM_MODE_MYSTERY] = {};  
 STORM_ALGORITHM[SIM_MODE_MISEO] = {};
 STORM_ALGORITHM[SIM_MODE_SUPERACTIVE] = {};   
-STORM_ALGORITHM[SIM_MODE_FISH] = {};   
+STORM_ALGORITHM[SIM_MODE_FISH] = {}; 
+STORM_ALGORITHM.defaults.interactionInit = {
+    fuji: true,
+    shear: false,
+    kill: false
+};
+
+STORM_ALGORITHM.defaults.interaction = function(sys0, sys1){
+    let interactionData = {};
+
+    let v = createVector();
+    v.set(sys0.pos);
+    v.sub(sys1.pos);
+    let m = v.mag();
+    let r = map(sys1.lowerWarmCore,0,1,150,50);
+    if(m<r && m>0){
+        v.rotate(sys0.basin.hem(-TAU/4+((3/m)*TAU/16)));
+        v.setMag(map(m,r,0,0,map(constrain(sys1.pressure,990,1030),1030,990,0.2,2.2)));
+        interactionData.fuji = v;
+        interactionData.shear = map(m,r,0,0,map(sys1.pressure,1030,900,0,6));
+        if((m < map(sys0.pressure,1030,1000,r/5,r/15) || m<5) && sys0.pressure > sys1.pressure)
+            interactionData.kill = 1;
+    }
+
+    return interactionData;
+};
+
 // -- Steering -- //
 
 STORM_ALGORITHM.defaults.steering = function(sys,vec,u){
     let ll = u.f("LLSteering");
     let ul = u.f("ULSteering");
-    let d = sqrt(sys.depth)+0.17;
+    let d = sqrt(sys.depth);
     let x = lerp(ll.x,ul.x,d);       // Deeper systems follow upper-level steering more and lower-level steering less
     let y = lerp(ll.y,ul.y,d);
     vec.set(x,y);
+    vec.add(sys.interaction.fuji);
 };
 
 // -- Core -- //
