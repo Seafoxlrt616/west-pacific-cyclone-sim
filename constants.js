@@ -1,5 +1,5 @@
-const TITLE = "Super Crazy Cyclone Simulator";
-const VERSION_NUMBER = "6.9.8";
+const TITLE = "Cyclone Simulator";
+const VERSION_NUMBER = "0.5A";
 
 const SAVE_FORMAT = 6;  // Format #6 in use starting in v0.2
 const EARLIEST_COMPATIBLE_FORMAT = 0;
