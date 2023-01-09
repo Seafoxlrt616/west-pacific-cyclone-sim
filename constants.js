@@ -1,17 +1,17 @@
-const TITLE = "Cyclone Simulator";
-const VERSION_NUMBER = "0.4.7";
+const TITLE = "Super Crazy Cyclone Simulator";
+const VERSION_NUMBER = "v6.9.6";
 
-const SAVE_FORMAT = 7;  // Format #7 in use starting in v0.4
+const SAVE_FORMAT = 6;  // Format #6 in use starting in v0.2
 const EARLIEST_COMPATIBLE_FORMAT = 0;
 const ENVDATA_COMPATIBLE_FORMAT = 0;
 
-const WIDTH = 960; // 16:9 aspect ratio
-const HEIGHT = 540;
+const WIDTH = 1062; // 16:9 aspect ratio
+const HEIGHT = 600;
 const DIAMETER = 20;    // Storm icon diameter
 const PERLIN_ZOOM = 100;    // Resolution for perlin noise
 const TICK_DURATION = 3600000;  // How long in sim time does a tick last in milliseconds (1 hour)
 const ADVISORY_TICKS = 6;    // Number of ticks per advisory
-const YEAR_LENGTH = 365.2425*24;        // The length of a year in ticks; used for seasonal activity
+const YEAR_LENGTH = 365.2425*24;           // The length of a year in ticks; used for seasonal activity
 const STEP = 30;            // Number of milliseconds in real time a simulation step lasts at default speed
 const NHEM_DEFAULT_YEAR = moment.utc().year();
 const SHEM_DEFAULT_YEAR = moment.utc().month() < 6 ? NHEM_DEFAULT_YEAR : NHEM_DEFAULT_YEAR+1;
