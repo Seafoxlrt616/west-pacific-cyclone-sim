@@ -418,16 +418,26 @@ UI.init = function(){
 
     // main menu
 
+    var items = ["Create seasons that wreck the world!","Simulate your own monster storms!","Destroy all of humanity!","Boil the planet!","Rip the world to pieces!",'Create storms stronger than Jupiter\'s big red spot!',"Stimulate massive temperature swings!",'Beat 2020 by 50 times!!',"Stimulate seasons with more than 1000 storms!","Destroy Exoplanets!"]
+		var times = 0;
+		var thing = items[Math.floor(Math.random()*items.length)];
     mainMenu.append(false,WIDTH/2,HEIGHT/4,0,0,function(s){  // title text
         fill(COLORS.UI.text);
         noStroke();
         textAlign(CENTER,CENTER);
-        textSize(36);
+        textSize(50);
         text(TITLE,0,0);
-        textSize(18);
+        textSize(25);
         textStyle(ITALIC);
-        text("Simulate your own monster storms!",0,40);
+				times = times + 1
+				text(thing, 0,40);
+				if (times > 150) {
+					thing = items[Math.floor(Math.random()*items.length)];
+					times = 0;
+				}
+        
     });
+		
 
     mainMenu.append(false,WIDTH/2-100,HEIGHT/2-20,200,40,function(s){    // "New Basin" button
         s.button('New Basin',true,24);
