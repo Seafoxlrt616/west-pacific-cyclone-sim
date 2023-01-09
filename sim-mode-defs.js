@@ -490,10 +490,10 @@ SPAWN_RULES[SIM_MODE_WPAC].doSpawn = function(b){
 };	
 SPAWN_RULES[SIM_MODE_EXTREME].doSpawn = function(b){
     // tropic spawn area
-    if(random()<0.0007) b.spawnArchetype('wp1');		// main basin (t.o.cancer)
-    if(random()<0.0007) b.spawnArchetype('wp2');		// main basin (equator)
-	if(random()<0.0007) b.spawnArchetype('wp3');		// basin edge, philippines sea (t.o.cancer)
-    if(random()<0.0007) b.spawnArchetype('wp4');			// basin edge, philippines sea (equator)
+    if(random()<0.00074) b.spawnArchetype('wp1');		// main basin (t.o.cancer)
+    if(random()<0.00074) b.spawnArchetype('wp2');		// main basin (equator)
+	if(random()<0.00074) b.spawnArchetype('wp3');		// basin edge, philippines sea (t.o.cancer)
+    if(random()<0.00074) b.spawnArchetype('wp4');			// basin edge, philippines sea (equator)
     if(random()<0.00025) b.spawnArchetype('wp5');   // basin edge, western IDL (t.o.cancer)
     if(random()<0.00025) b.spawnArchetype('wp6');		// basin edge, western IDL (equator)
 	if(random()<0.00035) b.spawnArchetype('wp7');	// southern japan
