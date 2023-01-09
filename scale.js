@@ -227,7 +227,68 @@ class Scale{
         return v+2;
     }
 }
-
+Scale.JMA = new Scale({
+    measure: SCALE_MEASURE_TEN_MIN_KNOTS,
+    displayName: 'Japan Meteorological Agency',
+    colorSchemeDisplayNames: ['Classic','Wiki'],
+    flavorDisplayNames: ['Typhoon'],
+    classifications: [
+        {
+            threshold: 0,
+            color: ['rgb(20,20,230)','#5ebaff'],
+            subtropicalColor: ['rgb(60,60,220)','#5ebaff'],
+            symbol: 'D',
+            arms: 0,
+            stormNom: 'Tropical Depression',
+            subtropicalStormNom: 'Subtropical Depression',
+            stat: 'Depressions',
+            cName: 'Depression'
+        },
+        {
+            threshold: 34,
+            color: ['rgb(20,230,20)','#00faf4'],
+            subtropicalColor: ['rgb(60,220,60)','#00faf4'],
+            symbol: 'S',
+            stormNom: 'Tropical Storm',
+            subtropicalStormNom: 'Subtropical Storm',
+            stat: 'Named Storms',
+            cName: 'Storm'
+        },
+        {
+            threshold: 48,
+            color: ['rgb(180,230,20)','#ccffff'],
+            subtropicalColor: ['rgb(180,220,85)','#ccffff'],
+            symbol: 'STS',
+            subtropicalSymbol: 'SSS',
+            stormNom: 'Severe Tropical Storm',
+            subtropicalStormNom: 'Severe Subtropical Storm',
+            stat: 'Severe',
+            cName: 'Severe'
+        },
+        {
+            threshold: 64,
+            color: ['rgb(240,130,20)','#fdaf9a'],
+            symbol: 'TY',
+            stormNom: 'Typhoon',
+            stat: 'Typhoons',
+            cName: 'Strong Typhoon'
+        },
+        {
+            threshold: 85,
+            color: ['rgb(240,20,20)','#fe887d'],
+            symbol: 'VSTY',
+            stat: 'Very Strong Typhoons',
+            cName: 'Very Strong Typhoon'
+        },
+        {
+            threshold: 105,
+            color: ['rgb(250,140,250)','#ff6060'],
+            symbol: 'VTY',
+            stat: 'Violent Typhoons',
+            cName: 'Violent Typhoon'
+        }
+    ]
+});
 Scale.saffirSimpson = new Scale({
     displayName: 'Saffir-Simpson',
     colorSchemeDisplayNames: ['Classic','Wiki'],
@@ -1106,7 +1167,8 @@ Scale.presetScales = [
     Scale.extendedSaffirSimpson,
     Scale.australian,
     Scale.typhoonCommittee,
-		Scale.jointTyphoon,
+	Scale.jointTyphoon,
+	Scale.JMA,
     Scale.IMD,
     Scale.southwestIndianOcean,
     Scale.hko
