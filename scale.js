@@ -1138,7 +1138,7 @@ Scale.hko = new Scale({
         },
         {
             threshold: 64,
-            color: ['rgb(252,187,0)','#FCBB00'],
+            color: ['rgb(252,252,0)','#ffffcc'],
             symbol: 'TY',
             stormNom: 'Typhoon',
             stat: 'Typhoons',
@@ -1146,7 +1146,7 @@ Scale.hko = new Scale({
         },
 				{
             threshold: 80,
-            color: ['rgb(252,111,20)','#FC6F00'],
+            color: ['rgb(240,120,20)','#ffc140'],
             symbol: 'STY',
             stormNom: 'Severe Typhoon',
             stat: 'Severe Typhoons',
@@ -1154,7 +1154,7 @@ Scale.hko = new Scale({
         },
 				{
             threshold: 100,
-            color: ['rgb(252,27,0)','#F32C14'],
+            color: ['rgb(252,27,0)','#ff6060'],
             symbol: 'STY',
             stormNom: 'Super Typhoon',
             stat: 'Super Typhoons',
