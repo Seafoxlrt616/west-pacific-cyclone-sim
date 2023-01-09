@@ -1354,27 +1354,27 @@ ENV_DEFS[SIM_MODE_EXPERIMENTAL].SST = {
     }
 };
 ENV_DEFS[SIM_MODE_WPAC].SST = {
-	mapFunc: (u,x,y,z)=>{
-        if(y<0) return 0;
-        let anom = u.field('SSTAnomaly');
-        let s = seasonalSine(z);
-        let w = map(cos(map(x,0,WIDTH,0,PI)),-0.8125,0.8125,0.8125,0.8125);
-        let h0 = y/HEIGHT;
-        let h1 = (sqrt(h0)+h0)/2;
-        let h2 = sqrt(sqrt(h0));
-        let h = map(cos(lerp(PI,0,lerp(h1,h2,sq(w)))),-1,1,0,1);
-        let ospt = u.modifiers.offSeasonPolarTemp;
-        let pspt = u.modifiers.peakSeasonPolarTemp;
-        let ostt = u.modifiers.offSeasonTropicsTemp;
-        let pstt = u.modifiers.peakSeasonTropicsTemp;
-        let t = lerp(map(s,-1,1,ospt,pspt),map(s,-1,1,ostt,pstt),h);
-        return t+anom;
-    },
+//	mapFunc: (u,x,y,z)=>{
+//        if(y<0) return 0;
+//        let anom = u.field('SSTAnomaly');
+//        let s = seasonalSine(z);
+//        let w = map(cos(map(x,0,WIDTH,0,PI)),-0.8125,0.8125,0.8125,0.8125);
+//        let h0 = y/HEIGHT;
+//        let h1 = (sqrt(h0)+h0)/2;
+//        let h2 = sqrt(sqrt(h0));
+//        let h = map(cos(lerp(PI,0,lerp(h1,h2,sq(w)))),-1,1,0,1);
+//        let ospt = u.modifiers.offSeasonPolarTemp;
+//        let pspt = u.modifiers.peakSeasonPolarTemp;
+//        let ostt = u.modifiers.offSeasonTropicsTemp;
+//        let pstt = u.modifiers.peakSeasonTropicsTemp;
+//        let t = lerp(map(s,-1,1,ospt,pspt),map(s,-1,1,ostt,pstt),h);
+//        return t+anom;
+//    },
     modifiers: {
         peakSeasonPolarTemp: 3,
         offSeasonPolarTemp: -1,
-        offSeasonTropicsTemp: 26.5,
-        peakSeasonTropicsTemp: 28.6
+        offSeasonTropicsTemp: 26.8,
+        peakSeasonTropicsTemp: 28.5
     }
 };       
 ENV_DEFS[SIM_MODE_EXTREME].SST = {
